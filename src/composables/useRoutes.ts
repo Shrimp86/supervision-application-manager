@@ -17,7 +17,7 @@ export function useRoutes() {
         name: xp.name,
         component: () =>
           import(
-            `@/views/${xp.component.substring(0, xp.component.indexOf('/'))}/${xp.component.substring(xp.component.indexOf('/') + 1)}.vue`
+            `@/views/${xp.path.substring(1, xp.path.indexOf('s/') == -1 ? xp.path.length - 1 : xp.path.indexOf('s/') - 1)}/${xp.component.substring(xp.component.indexOf('/') + 1)}.vue`
           )
       }
     })
